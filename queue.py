@@ -13,7 +13,7 @@ from collections import deque
 q = deque()
 q.append('a')
 q.append('b')
-q.append('c')hdfkhsf
+q.append('c')
 print("Initial queue")
 print(q)
 print("\nElements dequeued from the queue")
@@ -31,7 +31,7 @@ class Stack:
     self.items.append(item)
   def dequeue(self):
     if not self.is_empty():
-      return self.items.remove(20)
+      return self.items.pop(0)
     else:
       return None
   def first(self):
