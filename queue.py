@@ -24,7 +24,7 @@ print(q.popleft())
 print("\nQueue after removing elements")
 print(q)
 
-class Stack:
+class Queue:
   def __init__(self):
     self.items=[]
   def push(self,item):
@@ -44,17 +44,17 @@ class Stack:
   def __str__(self):
     return str(self.items)
 
-stack=Stack()
-stack.push(10)
-stack.push(20)
-stack.push(40)
-stack.push(50)
-stack.push(70)
-stack.push(50)
-stack.push(270)
-stack.push(202)
-print(stack)
+queue=Queue()
+queue.push(10)
+queue.push(20)
+queue.push(40)
+queue.push(50)
+queue.push(70)
+queue.push(50)
+queue.push(270)
+queue.push(202)
+print(queue)
 p=stack.dequeue()
 print(p)
-q=stack.first()
+q=queue.first()
 print(q)
