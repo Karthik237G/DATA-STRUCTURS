@@ -40,9 +40,6 @@ def bubbleSort(arr):
                 swapped = True
         if (swapped == False):
             break
-
-
-# Driver code to test above
 if __name__ == "__main__":
     arr = [64, 34, 25, 12, 22, 11, 90]
 
@@ -52,4 +49,33 @@ if __name__ == "__main__":
     for i in range(len(arr)):
         print("%d" % arr[i], end=" ")
 
-# This code is modified by Suraj krushna Yadav
+#merge Sort
+def mergesort(arr):
+    if len(arr)>1:
+        mid=len(arr)//2
+        left=arr[:mid]
+        right=arr[mid:]
+        mergesort(left)
+        mergesort(right)
+        i=j=k=0
+        while i<len(left) and j<len(right):
+            if left[i]<right[i]:
+                arr[k]=left[i]
+                i+=1
+            else:
+                arr[k]=right[j]
+                j+=1
+            k+=1
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
+
+arr = [12, 11, 13, 5, 6, 7]
+mergesort(arr)
+print("Sorted array:", arr)
