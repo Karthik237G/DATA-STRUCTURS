@@ -79,3 +79,17 @@ def mergesort(arr):
 arr = [12, 11, 13, 5, 6, 7]
 mergesort(arr)
 print("Sorted array:", arr)
+
+#quick sort
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[-1]  
+        left = [x for x in arr[:-1] if x <= pivot]
+        right = [x for x in arr[:-1] if x > pivot]
+        return quicksort(left) + [pivot] + quicksort(right)
+
+arr = [10, 80, 30, 90, 40, 50, 70]
+sorted_arr = quicksort(arr)
+print("Sorted array:", sorted_arr)
