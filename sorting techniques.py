@@ -93,6 +93,8 @@ def quicksort(arr):
 arr = [10, 80, 30, 90, 40, 50, 70]
 sorted_arr = quicksort(arr)
 print("Sorted array:", sorted_arr)
+
+#counting sort
 def counting_sort(arr):
     max_val = max(arr)
     count = [0] * (max_val + 1)
