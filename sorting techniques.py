@@ -93,3 +93,29 @@ def quicksort(arr):
 arr = [10, 80, 30, 90, 40, 50, 70]
 sorted_arr = quicksort(arr)
 print("Sorted array:", sorted_arr)
+def counting_sort(arr):
+    max_val = max(arr)
+    count = [0] * (max_val + 1)
+    output = [0] * len(arr)
+
+    # Step 3: Count occurrences
+    for num in arr:
+        count[num] += 1
+
+    # Step 4: Cumulative count
+    for i in range(1, len(count)):
+        count[i] += count[i - 1]
+
+    # Step 5: Build output array
+    for i in range(len(arr) - 1, -1, -1):
+        output[count[arr[i]] - 1] = arr[i]
+        count[arr[i]] -= 1
+
+    # Step 6: Copy output back to original array
+    for i in range(len(arr)):
+        arr[i] = output[i]
+
+# Example usage
+arr = [4, 2, 2, 8, 3, 3, 1]
+counting_sort(arr)
+print("Sorted array:", arr)
