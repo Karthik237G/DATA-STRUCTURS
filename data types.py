@@ -26,5 +26,13 @@ print(tuple+tuple2)
 #we cannot directly delete or insert but we can use slicing and striding techniques and alter them by creating a new tuple 
 new_tup=tuple[:1]+tuple[2:] #output (1, 3, 4, 8, 9, 45) 2 is deleted using slicing
 
+#set {}
+set={1,2,3,'apple'}
+set.add(element) #any data type can be added using add
+set.discard(element) #used to remove int and all other data type
+set.remove(element) # used to remove string data type element
+
+#dict{}
+
 
 
