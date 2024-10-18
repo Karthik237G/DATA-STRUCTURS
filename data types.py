@@ -33,6 +33,11 @@ set.discard(element) #used to remove int and all other data type
 set.remove(element) # used to remove string data type element
 
 #dict{}
+dict={'name':'karthik','age':23}
+print(dict)
+#or 
+my_dict=dict(name='karthik',age=30)
+print(my_dict)
 
 
 
