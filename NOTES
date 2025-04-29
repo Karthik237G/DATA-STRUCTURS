@@ -1,0 +1,21 @@
+QUEUES:
+FIRST IN FIRST OUT
+Enqueue and Dequeue operations
+Front/Head and Rear/Tail/Back
+OPERATIONS: Enqueue, Dequeue, front()/ peek(), rear(), isFull(), isEmpty()
+TYPES OF QUEUE: Input restricted queue(enqueue can be done on any one end deque can be done on any end), 
+Output restricted queue(dequeue can be done on only one end enqueue can be done on eny end),
+circular queue, double ended queue, priority queue(mostly used data structure as it is the base for heap datastructure)
+
+Example problems:
+return binary numbers from 1 to N: 
+from collections import deque
+def binary(n):
+  queue=deque(["1"])
+  res=[]
+  for _ in range(n):
+    current=queue.popleft()
+    res.append(current)
+    queue.append(current+"0")
+    queue.append(current+"1")
+  return res
