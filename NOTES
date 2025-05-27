@@ -2,10 +2,75 @@ QUEUES:
 FIRST IN FIRST OUT
 Enqueue and Dequeue operations
 Front/Head and Rear/Tail/Back
-OPERATIONS: Enqueue, Dequeue, front()/ peek(), rear(), isFull(), isEmpty()
+OPERATIONS: Enqueue(overflow), Dequeue(underflow), front()/ peek(), rear(), isFull(), isEmpty()
 TYPES OF QUEUE: Input restricted queue(enqueue can be done on any one end deque can be done on any end), 
 Output restricted queue(dequeue can be done on only one end enqueue can be done on eny end),
 circular queue, double ended queue, priority queue(mostly used data structure as it is the base for heap datastructure)
+
+implementation of queue in c:
+#include<stdio.h>
+#include<stdlib.h>
+#include<limits.h>
+struct Queue{
+    int front,rear,size;
+    unsigned capacity;
+    int* array;
+};
+struct Queue* createQueue(unsigned capacity){
+    struct Queue* queue=(struct Queue*) malloc(sizeof(struct Queue));
+    queue -> capacity=capacity;
+    queue -> front=queue->size=0;
+    queue -> rear=capacity-1;
+    queue -> array=(int*)malloc(queue ->capacity*sizeof(int));
+    return queue;
+}
+int isfull(struct Queue* queue)
+{
+    return (queue -> size == queue -> capacity);
+}
+int isempty(struct Queue* queue)
+{
+    return(queue -> size==0);
+}
+void enqueue(struct Queue* queue, int item){
+    if (isfull(queue))
+    return;
+    queue -> rear= (queue -> rear+1)%queue -> capacity;
+    queue ->array[queue -> rear]=item;
+    queue -> size =queue ->size +1;
+    printf("%d enqued to queue \n",item);
+}
+int dequeue(struct Queue* queue){
+    if (isempty(queue))
+    return INT_MIN;
+    int item =queue -> array[queue ->front];
+    queue ->front =(queue -> front+1)%queue ->capacity;
+    queue -> size = queue -> size-1;
+    return item;
+    
+}
+int front (struct Queue* queue)
+{
+    if (isempty(queue))
+    return INT_MIN;
+    return queue -> array[queue -> front];
+}
+int rear(struct Queue* queue){
+    if (isempty(queue))
+    return INT_MIN;
+    return queue -> array[queue -> rear];
+}
+int main(){
+    struct Queue* queue =createQueue(10);
+    enqueue(queue,45);
+    enqueue(queue,5452);
+    enqueue(queue,45);
+    enqueue(queue,466);enqueue(queue,4655);
+    enqueue(queue,78);
+    printf("%d dequed from the queue\n",dequeue(queue));
+    printf("%d is the front and %d is the rare",front(queue),rear(queue));
+    return 0;
+}
 
 Example problems:
 return binary numbers from 1 to N: 
